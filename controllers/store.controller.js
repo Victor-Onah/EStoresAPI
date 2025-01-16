@@ -1,5 +1,5 @@
-import Product from "../models/Product.js";
-import Store from "../models/Store.js";
+import Product from "../models/product.model.js";
+import Store from "../models/store.model.js";
 import parseError from "../utils/parseError.js";
 
 // Get all stores

@@ -1,4 +1,4 @@
-import Product from "../models/Product.js";
+import Product from "../models/product.model.js";
 import parseError from "../utils/parseError.js";
 
 // Get all products

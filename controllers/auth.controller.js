@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+import User from "../models/user.model.js";
 import { encrypt, hash } from "../services/crypto.js";
 import parseError from "../utils/parseError.js";
 

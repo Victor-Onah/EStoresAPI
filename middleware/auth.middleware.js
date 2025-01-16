@@ -1,5 +1,5 @@
 import parseError from "../utils/parseError.js";
-import User from "../models/User.js";
+import User from "../models/user.model.js";
 import { decrypt } from "../services/crypto.js";
 
 const authMiddleware = async (req, res, next) => {
