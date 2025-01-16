@@ -1,4 +1,4 @@
-import mongoose, { connection } from "../config/database.config.js";
+import mongoose, { connection } from "../configs/database.config.js";
 
 const productSchema = new mongoose.Schema(
     {

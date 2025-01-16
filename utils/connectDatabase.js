@@ -1,4 +1,4 @@
-import mongoose from "../config/database.config.js";
+import mongoose from "../configs/database.config.js";
 
 const connectDatabase = async () => {
     try {

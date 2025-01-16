@@ -4,7 +4,7 @@ import { decrypt } from "../services/crypto.js";
 
 const authMiddleware = async (req, res, next) => {
     try {
-        const token = req.headers.authorization.replace("Bearer ", "");
+        const token = req.headers.authorization?.replace("Bearer ", "");
         const { _id, expires } = decrypt(token);
         if (expires < Date.now()) return res.status(401).json({ status: "Failed", reason: "Token has expired." });
 

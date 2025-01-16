@@ -1,4 +1,4 @@
-import mongoose, { connection } from "../config/database.config.js";
+import mongoose, { connection } from "../configs/database.config.js";
 import { hash } from "../services/crypto.js";
 
 const userSchema = new mongoose.Schema({
