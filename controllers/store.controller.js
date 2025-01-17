@@ -1,6 +1,7 @@
 import Product from "../models/product.model.js";
 import Store from "../models/store.model.js";
 import parseError from "../utils/parseError.js";
+import { usersCache } from "../middlewares/auth.middleware.js";
 
 export const getAllStores = async (req, res) => {
     try {
@@ -37,6 +38,8 @@ export const createStore = async (req, res) => {
         const newStore = await Store.create({ ...req.body, owner: req.authUser._id });
         req.authUser.stores.push(newStore._id);
         await req.authUser.save();
+        delete usersCache[req.authUser._id];
+        usersCache[req.authUser._id] = req.authUser;
         res.status(201).json({ success: true, data: newStore.toObject() });
     } catch (error) {
         parseError(error, res);

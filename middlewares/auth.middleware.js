@@ -5,7 +5,7 @@ import TokenBucketsStore from "../utils/tokenBucket.js";
 import Cache from "../utils/cache.js";
 
 const tokenBucket = new TokenBucketsStore();
-const userCache = new Cache();
+export const usersCache = new Cache();
 
 const authMiddleware = async (req, res, next) => {
     try {
@@ -23,7 +23,7 @@ const authMiddleware = async (req, res, next) => {
         if (acceptRequest === null) tokenBucket.put(id, type === "TEST" ? 100 : 10_000);
 
         const user =
-            userCache.get(_id) || type === "TEST"
+            usersCache.get(_id) || type === "TEST"
                 ? await User.findOne({
                       "authTokens.test.token": token
                   })
@@ -42,7 +42,7 @@ const authMiddleware = async (req, res, next) => {
             });
 
         delete user.password;
-        userCache[user._id] = user.toObject();
+        usersCache[user._id] = user.toObject();
         req.authUser = user;
         next();
     } catch (error) {
