@@ -22,22 +22,7 @@ const storeSchema = new mongoose.Schema(
             type: String,
             trim: true
         },
-        admins: {
-            type: [
-                {
-                    _id: {
-                        type: mongoose.Schema.Types.ObjectId,
-                        res: "User",
-                        required: [true, "The ID of the store owner was not specified."]
-                    },
-                    permissions: {
-                        type: String,
-                        enum: ["readonly", "readwrite"]
-                    }
-                }
-            ],
-            _id: false
-        }
+        extras: mongoose.Schema.Types.Mixed
     },
     { timestamps: true }
 );

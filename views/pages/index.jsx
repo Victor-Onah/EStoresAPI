@@ -12,11 +12,10 @@ import {
     CgShoppingBag,
     CgUserAdd
 } from "react-icons/cg";
-import Circles from "../components/Circles";
 
 export default function HomePage() {
     return (
-        <main className="bg-gradient-to-b from-blue-700 to-blue-900 min-h-[200vh] overflow-x-hidden -z-50">
+        <main className="bg-black text-gray-100 overflow-x-hidden">
             <Hero />
             <div className="p-4">
                 <Features />
@@ -31,10 +30,9 @@ export default function HomePage() {
 }
 
 const Hero = () => (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 text-center -z-1 flex justify-center items-center relative">
-        <Circles />
+    <section className="py-20 px-4 sm:px-6 lg:px-8 text-center -z-1 flex justify-center items-center relative z-0">
         <div className="m-auto z-10">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
                 Build E-Commerce Apps Faster, <br className="hidden sm:inline" />
                 Without Backend Hassles
             </h1>
@@ -43,16 +41,12 @@ const Hero = () => (
                 applications with ease using eStoresAPI.
             </p>
             <div className="flex justify-center space-x-4">
-                <Link to={"/auth/register"}>
-                    <Button size="lg" className="bg-blue-800 hover:bg-blue-700 text-zinc-100">
-                        Get Started Free
-                    </Button>
-                </Link>
-                <Link to={"/about"}>
-                    <Button size="lg" variant="outline" className="bg-blue-950 text-white">
-                        Learn More <CgArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                </Link>
+                <Button as={Link} to="/auth/register" size="lg" className="bg-blue-800 hover:bg-blue-700 text-zinc-100">
+                    Get Started Free
+                </Button>
+                <Button as={Link} to={"/docs"} size="lg" variant="outline" className="bg-blue-950">
+                    Read The Docs <CgArrowRight className="ml-2 h-4 w-4" />
+                </Button>
             </div>
         </div>
     </section>
@@ -84,7 +78,7 @@ const features = [
 const Features = () => (
     <section
         id="features"
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-white max-w-screen-xl mx-auto rounded-3xl z-50 relative text-gray-800"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800 max-w-screen-xl mx-auto rounded-3xl z-50 relative"
     >
         <h2 className="text-3xl font-bold text-center mb-12">Why Choose eStoresAPI?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -92,7 +86,7 @@ const Features = () => (
                 <div key={index} className="flex flex-col items-center text-center">
                     {feature.icon}
                     <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <p className="text-gray-300">{feature.description}</p>
                 </div>
             ))}
         </div>
@@ -101,17 +95,17 @@ const Features = () => (
 
 const steps = [
     {
-        icon: <CgUserAdd className="text-4xl" />,
+        icon: <CgUserAdd className="text-4xl text-pink-600" />,
         title: "Sign Up for Free",
         description: "Create an account and get your API keys."
     },
     {
-        icon: <CgShoppingBag className="text-4xl" />,
+        icon: <CgShoppingBag className="text-4xl text-yellow-600" />,
         title: "Create Your Store",
         description: "Set up stores and manage products directly via the API."
     },
     {
-        icon: <CgCode className="text-4xl" />,
+        icon: <CgCode className="text-4xl text-green-600" />,
         title: "Start Building",
         description: "Use our endpoints for CRUD operations, cart management, customer sign-up, and more."
     }
@@ -119,11 +113,17 @@ const steps = [
 
 const HowItWorks = () => (
     <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 text-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">How Does It Work?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
                 <div key={index} className="flex flex-col items-center text-center">
-                    <div className="bg-white text-blue-600 rounded-full p-4 mb-4">{step.icon}</div>
+                    <div
+                        className={`${
+                            index === 0 ? "bg-pink-200" : index === 1 ? "bg-yellow-200" : "bg-green-200"
+                        } text-blue-600 rounded-full p-4 mb-4`}
+                    >
+                        {step.icon}
+                    </div>
                     <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                     <p className="text-gray-200">{step.description}</p>
                 </div>
@@ -133,7 +133,7 @@ const HowItWorks = () => (
 );
 
 const Testimonials = () => (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white text-gray-800 max-w-screen-lg mx-auto rounded-3xl">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800 max-w-screen-lg mx-auto rounded-3xl">
         <h2 className="text-3xl font-bold text-center mb-12">Trusted by Developers Worldwide</h2>
         <div className="max-w-3xl mx-auto">
             <blockquote className="text-center">

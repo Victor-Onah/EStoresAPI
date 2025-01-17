@@ -23,7 +23,7 @@ const Header = () => {
     }, [mobileMenuOpen]);
 
     return (
-        <header className="bg-white shadow-md sticky top-0 left-0 w-full z-[9999]">
+        <header className="bg-zinc-900 text-zinc-100 shadow-md sticky top-0 left-0 w-full z-[9999]">
             {mobileMenuOpen && (
                 <div className="fixed inset-0 bg-transparent" onClick={() => setMobileMenuOpen(false)}></div>
             )}
@@ -34,7 +34,7 @@ const Header = () => {
                     style={{ transformOrigin: "top right" }}
                     className={`${
                         mobileMenuOpen ? "max-md:scale-100" : "max-md:scale-0"
-                    } text-sm font-semibold max-md:fixed max-md:right-4 max-md:top-4 max-md:z-[9999] max-md:bg-white max-md:shadow-md max-md:rounded-lg max-md:p-4 max-md:flex max-md:flex-col max-md:space-x-0 max-md:min-w-[200px] transition-all duration-300 ease-in-out`}
+                    } text-sm font-semibold max-md:fixed max-md:right-4 max-md:top-4 max-md:z-[9999] max-md:bg-zinc-950 max-md:shadow-md max-md:rounded-lg max-md:p-4 max-md:flex max-md:flex-col max-md:space-x-0 max-md:min-w-[200px] transition-all duration-300 ease-in-out`}
                 >
                     <ul className="space-x-4 max-md:space-x-0 max-md:flex max-md:flex-col max-md:space-y-4">
                         {navItems.map((link) => (

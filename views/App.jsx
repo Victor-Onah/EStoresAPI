@@ -1,13 +1,15 @@
 import { NextUIProvider } from "@nextui-org/react";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import DocsLayout from "./pages/docs/Layout";
+import DocsHome from "./pages/docs";
 
 export default function App() {
     return (
         <NextUIProvider>
-            <HashRouter>
+            <BrowserRouter>
                 <Routes>
                     <Route
                         index
@@ -19,8 +21,11 @@ export default function App() {
                             </>
                         }
                     />
+                    <Route path="/docs" element={<DocsLayout />}>
+                        <Route index element={<DocsHome />} />
+                    </Route>
                 </Routes>
-            </HashRouter>
+            </BrowserRouter>
         </NextUIProvider>
     );
 }

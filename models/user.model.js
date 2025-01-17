@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema({
             message: "The GitHub profile link provided is invalid!"
         }
     },
-    authTokens: {
+    apiKeys: {
         type: {
             test: {
                 type: {

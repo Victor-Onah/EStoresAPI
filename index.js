@@ -6,6 +6,7 @@ import authRouter from "./routes/auth.route.js";
 import storeRouter from "./routes/store.route.js";
 import productRouter from "./routes/product.route.js";
 import corsConfig from "./configs/cors.config.js";
+import { readFile } from "fs/promises";
 
 // Configuration for reading from environment files
 config();
@@ -29,22 +30,10 @@ app.use("/api/v1/stores", storeRouter);
 app.use("/api/v1/products", productRouter);
 
 // Serve HTML using Vite's transformIndexHtml
-app.get("/", async (req, res) => {
+app.use("*", async (req, res) => {
     if (isDevEnv) {
         const url = req.originalUrl;
-        const html = await vite.transformIndexHtml(
-            url,
-            `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head><title>Vite + Express</title></head>
-                <body>
-                    <div id="app"></div>
-                    <script type="module" src="/views/main.jsx"></script>
-                </body>
-                </html>
-            `
-        );
+        const html = await vite.transformIndexHtml(url, await readFile("./views/templates/default.html", "utf-8"));
         res.status(200).set({ "Content-Type": "text/html" }).end(html);
     } else {
         // res.sendFile(path.resolve(distPath, "index.html"));
