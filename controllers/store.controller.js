@@ -46,6 +46,50 @@ export const createStore = async (req, res) => {
     }
 };
 
+export const updateStoreDescription = async () => {
+    try {
+        if (!req.is("text/plain"))
+            return res.status(400).json({
+                success: false,
+                message: `Expected request body to be of type 'text/plain', got type '${req.headers["content-type"]}' instead.`
+            });
+
+        const updatedStore = await Store.findOneAndUpdate(
+            { _id: req.params.id, owner: req.authUser._id },
+            { description: req.body },
+            {
+                new: true,
+                runValidators: true
+            }
+        );
+        res.status(201).json({ success: true, data: updatedStore.toObject() });
+    } catch (error) {
+        parseError(error, res);
+    }
+};
+
+export const updateStoreName = async () => {
+    try {
+        if (!req.is("text/plain"))
+            return res.status(400).json({
+                success: false,
+                message: `Expected request body to be of type 'text/plain', got type '${req.headers["content-type"]}' instead.`
+            });
+
+        const updatedStore = await Store.findOneAndUpdate(
+            { _id: req.params.id, owner: req.authUser._id },
+            { name: req.body },
+            {
+                new: true,
+                runValidators: true
+            }
+        );
+        res.status(201).json({ success: true, data: updatedStore.toObject() });
+    } catch (error) {
+        parseError(error, res);
+    }
+};
+
 export const updateStore = async (req, res) => {
     try {
         if (!req.is("application/json"))
@@ -56,7 +100,7 @@ export const updateStore = async (req, res) => {
 
         const updatedStore = await Store.findOneAndUpdate(
             { _id: req.params.id, owner: req.authUser._id },
-            req.body.updates,
+            { extras: req.body },
             {
                 new: true,
                 runValidators: true
