@@ -62,7 +62,7 @@ export const updateStoreDescription = async () => {
                 runValidators: true
             }
         );
-        res.status(201).json({ success: true, data: updatedStore.toObject() });
+        res.status(200).json({ success: true, data: updatedStore.toObject() });
     } catch (error) {
         parseError(error, res);
     }
@@ -84,7 +84,7 @@ export const updateStoreName = async () => {
                 runValidators: true
             }
         );
-        res.status(201).json({ success: true, data: updatedStore.toObject() });
+        res.status(200).json({ success: true, data: updatedStore.toObject() });
     } catch (error) {
         parseError(error, res);
     }
@@ -125,15 +125,6 @@ export const deleteStore = async (req, res) => {
             success: true,
             message: "Store and all its products have been deleted successfully."
         });
-    } catch (error) {
-        parseError(error, res);
-    }
-};
-
-// Initialize a store ownership transfer
-export const initTransferOfStoreOwnership = (req, res) => {
-    try {
-        // TODO: Write logic to notify new owner of transfer and approval.
     } catch (error) {
         parseError(error, res);
     }

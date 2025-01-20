@@ -9,6 +9,29 @@
     font-family: "Fira Sans", sans-serif;
 }
 
-.monospace {
+.text-mono,
+code,
+kbd,
+pre {
     font-family: "Fira Code", monospace;
+}
+
+.code-block {
+    @apply bg-zinc-900 rounded-md;
+
+    h3 {
+        @apply p-2;
+    }
+}
+
+pre {
+    @apply overflow-x-auto bg-zinc-800 p-6 rounded-md text-sm;
+}
+
+code {
+    @apply bg-zinc-800 p-[1px_4px] rounded-md text-sm;
+}
+
+blockquote {
+    @apply p-4 border-l-4 bg-zinc-900;
 }

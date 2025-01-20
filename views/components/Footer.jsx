@@ -22,7 +22,7 @@ const Footer = () => (
             <nav className="-mb-6 flex justify-center space-x-12" aria-label="Footer">
                 {navigation.main.map((item) => (
                     <div key={item.name} className="pb-6">
-                        <Link href={item.href} className="text-sm leading-6 text-gray-400 hover:text-white">
+                        <Link to={item.href} className="text-sm leading-6 text-gray-400 hover:text-white">
                             {item.name}
                         </Link>
                     </div>
@@ -30,7 +30,7 @@ const Footer = () => (
             </nav>
             <div className="mt-10 flex justify-center space-x-10">
                 {navigation.social.map((item) => (
-                    <Link key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300">
+                    <Link key={item.name} to={item.href} className="text-gray-400 hover:text-gray-300">
                         <span className="sr-only">{item.name}</span>
                         {item.icon}
                     </Link>
