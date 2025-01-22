@@ -1,6 +1,5 @@
 import { CgArrowLeft, CgArrowRight } from "react-icons/cg";
 import { Link } from "react-router-dom";
-import hljs from "highlight.js";
 import CodeBlock from "../../../components/CodeBlock";
 
 export default function DeleteStoreDoc() {
