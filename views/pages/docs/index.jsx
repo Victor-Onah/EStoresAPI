@@ -69,7 +69,7 @@ export default function DocsHome() {
                         Includes APIs for updating, deleting, and getting store information.
                     </p>
                 </Link>
-                <Link to="./stores" className="p-4 border border-zinc-700 rounded-md bg-zinc-800/50 backdrop-blur-lg">
+                <Link to="./products" className="p-4 border border-zinc-700 rounded-md bg-zinc-800/50 backdrop-blur-lg">
                     <h3 className="text-lg">Products API</h3>
                     <p className="text-sm text-zinc-300">
                         Includes APIs for creating, deleting, updating, and getting product information.

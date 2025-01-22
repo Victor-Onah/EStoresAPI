@@ -93,7 +93,7 @@ deleteStore();`}
                 >
                     <CgArrowLeft /> Adding custom data to store
                 </Link>
-                <Link to="../stores" className="flex items-center gap-2 hover:text-blue-600 hover:underline">
+                <Link to="../products" className="flex items-center gap-2 hover:text-blue-600 hover:underline">
                     Products API <CgArrowRight />
                 </Link>
             </div>

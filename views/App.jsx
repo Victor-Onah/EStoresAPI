@@ -12,6 +12,7 @@ import ExtrasUpdateDoc from "./pages/docs/store/ExtrasUpdateDoc";
 import DeleteStoreDoc from "./pages/docs/store/DeleteStoreDoc";
 import FetchAllStoresDoc from "./pages/docs/store/FetchAllStoresDoc";
 import FetchSingleStoreDoc from "./pages/docs/store/FetchSingleStoreDoc";
+import ProductsAPIDocHome from "./pages/docs/products";
 
 export default function App() {
     return (
@@ -37,6 +38,7 @@ export default function App() {
                         <Route path={"stores/delete"} element={<DeleteStoreDoc />} />
                         <Route path={"stores/get/all"} element={<FetchAllStoresDoc />} />
                         <Route path={"stores/get/single"} element={<FetchSingleStoreDoc />} />
+                        <Route path={"products"} element={<ProductsAPIDocHome />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
