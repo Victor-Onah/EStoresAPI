@@ -1,7 +1,6 @@
 import Product from "../models/product.model.js";
 import parseError from "../utils/parseError.js";
 
-// Get all products
 export const getAllProducts = async (req, res) => {
     try {
         const { page, limit, fields, storeId } = req.query;
@@ -23,7 +22,6 @@ export const getAllProducts = async (req, res) => {
     }
 };
 
-// Get a single product
 export const getProductById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -42,7 +40,6 @@ export const getProductById = async (req, res) => {
     }
 };
 
-// Create a new product
 export const createProduct = async (req, res) => {
     try {
         if (!req.is("application/json"))
@@ -62,7 +59,6 @@ export const createProduct = async (req, res) => {
     }
 };
 
-// Update a product
 export const updateProduct = async (req, res) => {
     try {
         if (!req.is("application/json"))
@@ -87,7 +83,6 @@ export const updateProduct = async (req, res) => {
     }
 };
 
-// Delete a product
 export const deleteProduct = async (req, res) => {
     try {
         const { storeId } = req.query;

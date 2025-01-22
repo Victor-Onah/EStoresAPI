@@ -1,5 +1,6 @@
 import { CgArrowLeft, CgArrowRight } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import CodeBlock from "../../../components/CodeBlock";
 
 export default function NameUpdateDoc() {
     return (
@@ -14,21 +15,22 @@ export default function NameUpdateDoc() {
             <blockquote>
                 <strong>Note</strong>: Only send <code>POST</code> requests to this endpoint.
             </blockquote>
-            <div className="code-block">
-                <h3>Endpoint URL</h3>
-                <pre>{`https://estoresapi.com/api/v1/stores/update/name`}</pre>
-            </div>
-            <div className="code-block">
-                <h3>Example Request</h3>
-                <pre>
-                    {`const API_KEY = "your_api_key";
+            <CodeBlock
+                heading="Endpoint URL"
+                code={`https://estoresapi.com/api/v1/stores/update/name`}
+                language="plaintext"
+            />
+            <CodeBlock
+                heading="Example Request"
+                language="javascript"
+                code={`const API_KEY = "your_api_key";
 const STORE_ID = "your_store_id";
 
 async function changeStoreName(newName) {
     try {
         const response = await fetch(\`https://estoresapi.com/api/v1/stores/update/name?storeId=\$\{STORE_ID\}\`, {
             method: "POST",
-            body: newName;
+            body: newName,
             headers: {
                 "Content-Type": "text/plain",
                 "Authentication": \`Bearer \$\{API_KEY\}\`
@@ -45,8 +47,7 @@ async function changeStoreName(newName) {
 }
 
 changeStoreName("Rex Collections");`}
-                </pre>
-            </div>
+            />
             <br />
             <h2 className="text-2xl font-semibold">Possible Responses</h2>
             <p>
@@ -54,21 +55,27 @@ changeStoreName("Rex Collections");`}
                 status, which is a <code>boolean</code> (<code>true</code> or <code>false</code>), the optional{" "}
                 <code>message</code> which is <code>string</code> or the <code>data</code> containing the updated store.
             </p>
-            <div className="code-block">
-                <h3>
-                    Success - <code>200 (OK)</code>
-                </h3>
-                <pre>{`{ success: true, data: <Updated_Store> }`}</pre>
-            </div>
-            <div className="code-block">
-                <h3>
-                    Incorrect Request Body <code>Content-Type</code> - <code>400 (Bad Request)</code>
-                </h3>
-                <pre>{`{ 
+            <CodeBlock
+                heading={
+                    <>
+                        Success - <code>200 (OK)</code>
+                    </>
+                }
+                code={`{ success: true, data: <Updated_Store> }`}
+                language="json"
+            />
+            <CodeBlock
+                heading={
+                    <>
+                        Incorrect Request Body <code>Content-Type</code> - <code>400 (Bad Request)</code>
+                    </>
+                }
+                code={`{ 
     success: false, 
     message: "Expected request body to be of type 'text/plain', got type <Incorrect_Content-Type> instead."
-}`}</pre>
-            </div>
+}`}
+                language="json"
+            />
             <p>
                 Failure to provide your authorization token, or using an inactive token will result in a{" "}
                 <code>401 - Unauthorized</code> error.

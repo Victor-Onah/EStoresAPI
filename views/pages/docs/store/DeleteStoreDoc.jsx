@@ -1,5 +1,7 @@
 import { CgArrowLeft, CgArrowRight } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import hljs from "highlight.js";
+import CodeBlock from "../../../components/CodeBlock";
 
 export default function DeleteStoreDoc() {
     return (
@@ -14,14 +16,9 @@ export default function DeleteStoreDoc() {
             <blockquote>
                 <strong>Note</strong>: Only send <code>DELETE</code> requests to this endpoint.
             </blockquote>
-            <div className="code-block">
-                <h3>Endpoint URL</h3>
-                <pre>{`https://estoresapi.com/api/v1/stores/:id`}</pre>
-            </div>
-            <div className="code-block">
-                <h3>Example Request</h3>
-                <pre>
-                    {`const API_KEY = "your_api_key";
+            <CodeBlock language="plaintext" code={`https://estoresapi.com/api/v1/stores/:id`} heading="Endpoint URL" />
+            <CodeBlock
+                code={`const API_KEY = "your_api_key";
 const STORE_ID = "your_store_id";
 
 async function deleteStore() {
@@ -42,8 +39,9 @@ async function deleteStore() {
 }
 
 deleteStore();`}
-                </pre>
-            </div>
+                language="javascript"
+                heading="Example Request"
+            />
             <br />
             <h2 className="text-2xl font-semibold">Possible Responses</h2>
             <p>
@@ -51,21 +49,27 @@ deleteStore();`}
                 status, which is a <code>boolean</code> (<code>true</code> or <code>false</code>), the optional{" "}
                 <code>message</code> which is <code>string</code>.
             </p>
-            <div className="code-block">
-                <h3>
-                    Success - <code>200 (OK)</code>
-                </h3>
-                <pre>{`{ success: true, message: "Store and all its products have been deleted successfully." }`}</pre>
-            </div>
-            <div className="code-block">
-                <h3>
-                    Store Not Found - <code>404 (Not Found)</code>
-                </h3>
-                <pre>{`{ 
+            <CodeBlock
+                code={`{ success: true, message: "Store and all its products have been deleted successfully." }`}
+                language="json"
+                heading={
+                    <>
+                        Success - <code>200 (OK)</code>
+                    </>
+                }
+            />
+            <CodeBlock
+                code={`{ 
     success: false, 
     message: "Store not found"
-}`}</pre>
-            </div>
+}`}
+                language="json"
+                heading={
+                    <>
+                        Store Not Found - <code>404 (Not Found)</code>
+                    </>
+                }
+            />
             <p>
                 Failure to provide your authorization token, or using an inactive token will result in a{" "}
                 <code>401 - Unauthorized</code> error.

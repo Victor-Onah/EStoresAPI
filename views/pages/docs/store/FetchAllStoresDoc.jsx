@@ -1,5 +1,6 @@
 import { CgArrowLeft, CgArrowRight } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import CodeBlock from "../../../components/CodeBlock";
 
 export default function FetchAllStoresDoc() {
     return (
@@ -13,14 +14,11 @@ export default function FetchAllStoresDoc() {
             <blockquote>
                 <strong>Note</strong>: Only send <code>GET</code> requests to this endpoint.
             </blockquote>
-            <div className="code-block">
-                <h3>Endpoint URL</h3>
-                <pre>{`https://estoresapi.com/api/v1/stores`}</pre>
-            </div>
-            <div className="code-block">
-                <h3>Example Request</h3>
-                <pre>
-                    {`const API_KEY = "your_api_key";
+            <CodeBlock heading="Endpoint URL" code={`https://estoresapi.com/api/v1/stores`} language="plaintext" />
+            <CodeBlock
+                heading="Example Request"
+                language="javascript"
+                code={`const API_KEY = "your_api_key";
 
 async function fetchAllStores() {
     try {
@@ -41,8 +39,7 @@ async function fetchAllStores() {
 }
 
 fetchAllStores();`}
-                </pre>
-            </div>
+            />
             <br />
             <h2 className="text-2xl font-semibold">Allowed Query Parameters</h2>
             <p>You can use the following query parameters to customize the response:</p>
@@ -59,18 +56,24 @@ fetchAllStores();`}
                 status, which is a <code>boolean</code> (<code>true</code> or <code>false</code>), and the{" "}
                 <code>data</code> which is an array of store objects.
             </p>
-            <div className="code-block">
-                <h3>
-                    Success - <code>200 (OK)</code>
-                </h3>
-                <pre>{`{ success: true, data: [ { _id: "store_id", name: "Store Name", description: "Store Description" } ] }`}</pre>
-            </div>
-            <div className="code-block">
-                <h3>
-                    Unauthorized - <code>401 (Unauthorized)</code>
-                </h3>
-                <pre>{`{ success: false, message: "You are not authorized to access this resource." }`}</pre>
-            </div>
+            <CodeBlock
+                heading={
+                    <>
+                        Success - <code>200 (OK)</code>
+                    </>
+                }
+                code={`{ success: true, data: [ { _id: "store_id", name: "Store Name", description: "Store Description" } ] }`}
+                language="json"
+            />
+            <CodeBlock
+                heading={
+                    <>
+                        Unauthorized - <code>401 (Unauthorized)</code>
+                    </>
+                }
+                code={`{ success: false, message: "You are not authorized to access this resource." }`}
+                language="json"
+            />
             <p>Other errors that may arise include:</p>
             <ul className="list-disc list-inside">
                 <li>

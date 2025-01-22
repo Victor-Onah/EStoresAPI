@@ -12,8 +12,9 @@
 .text-mono,
 code,
 kbd,
-pre {
-    font-family: "Fira Code", monospace;
+pre,
+pre code * {
+    font-family: "Fira Code", monospace !important;
 }
 
 .code-block {
