@@ -7,6 +7,9 @@ import DocsLayout from "./pages/docs/Layout";
 import DocsHome from "./pages/docs";
 import StoreAPIDocHome from "./pages/docs/store";
 import NameUpdateDoc from "./pages/docs/store/NameUpdateDoc";
+import DescriptionUpdateDoc from "./pages/docs/store/DescriptionUpdateDoc";
+import ExtrasUpdateDoc from "./pages/docs/store/ExtrasUpdateDoc";
+import DeleteStoreDoc from "./pages/docs/store/DeleteStoreDoc";
 
 export default function App() {
     return (
@@ -27,6 +30,9 @@ export default function App() {
                         <Route index element={<DocsHome />} />
                         <Route path={"stores"} element={<StoreAPIDocHome />} />
                         <Route path={"stores/update/name"} element={<NameUpdateDoc />} />
+                        <Route path={"stores/update/description"} element={<DescriptionUpdateDoc />} />
+                        <Route path={"stores/update/extras"} element={<ExtrasUpdateDoc />} />
+                        <Route path={"stores/delete"} element={<DeleteStoreDoc />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
