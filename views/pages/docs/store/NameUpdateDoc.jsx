@@ -91,8 +91,8 @@ changeStoreName("Rex Collections");`}
             <br />
             <br />
             <div className="flex justify-between items-center max-w-screen-md mx-auto">
-                <Link to="../stores/create" className="flex items-center gap-2 hover:text-blue-600 hover:underline">
-                    <CgArrowLeft /> Creating a store
+                <Link to="../stores/get/single" className="flex items-center gap-2 hover:text-blue-600 hover:underline">
+                    <CgArrowLeft /> Fetching a single store information
                 </Link>
                 <Link
                     to="../stores/update/description"

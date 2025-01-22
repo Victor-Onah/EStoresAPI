@@ -47,8 +47,8 @@ export default function StoreAPIDocHome() {
                 <Link to="../" className="flex items-center gap-2 hover:text-blue-600 hover:underline">
                     <CgArrowLeft /> Getting Started
                 </Link>
-                <Link className="flex items-center gap-2 hover:text-blue-600 hover:underline">
-                    Updating a store. <CgArrowRight />
+                <Link to="../store/create" className="flex items-center gap-2 hover:text-blue-600 hover:underline">
+                    Creating a store <CgArrowRight />
                 </Link>
             </div>
         </div>

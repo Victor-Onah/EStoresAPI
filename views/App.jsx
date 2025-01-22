@@ -10,6 +10,8 @@ import NameUpdateDoc from "./pages/docs/store/NameUpdateDoc";
 import DescriptionUpdateDoc from "./pages/docs/store/DescriptionUpdateDoc";
 import ExtrasUpdateDoc from "./pages/docs/store/ExtrasUpdateDoc";
 import DeleteStoreDoc from "./pages/docs/store/DeleteStoreDoc";
+import FetchAllStoresDoc from "./pages/docs/store/FetchAllStoresDoc";
+import FetchSingleStoreDoc from "./pages/docs/store/FetchSingleStoreDoc";
 
 export default function App() {
     return (
@@ -33,6 +35,8 @@ export default function App() {
                         <Route path={"stores/update/description"} element={<DescriptionUpdateDoc />} />
                         <Route path={"stores/update/extras"} element={<ExtrasUpdateDoc />} />
                         <Route path={"stores/delete"} element={<DeleteStoreDoc />} />
+                        <Route path={"stores/get/all"} element={<FetchAllStoresDoc />} />
+                        <Route path={"stores/get/single"} element={<FetchSingleStoreDoc />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
